@@ -5,6 +5,9 @@ from Loss_class import Loss
 # Cross-entropy loss
 class Loss_CategorialCrossentropy(Loss):
 
+    def __init__(self):
+        self.dinputs = None
+
     def forward(self, y_pred, y_true):
         samples = len(y_pred)
         # Clip data to prevent divsion by 0
@@ -30,4 +33,18 @@ class Loss_CategorialCrossentropy(Loss):
         negative_log_likelihoods = - np.log(correct_confidences)
 
         return negative_log_likelihoods
+
+    def backward(self, dvalues, y_true):
+        # Number of labels in every sample
+        # Use the first sample to count them
+        labels = len(dvalues[0])
+
+        # If labels are sparse, turn them into one-hot vector
+        if len(y_true.shape) == 1:
+            y_true = np.eye(labels)[y_true]
+
+        # Calculate the gradient
+        unnormalized_dinputs = -y_true / dvalues
+        # Normalize the gradient
+        self.dinputs = unnormalized_dinputs / len(dvalues)
 
