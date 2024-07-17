@@ -2,8 +2,9 @@ import math
 import numpy as np
 from Loss_class import Loss
 
+
 # Cross-entropy loss
-class Loss_CategorialCrossentropy(Loss):
+class Loss_CategoricalCrossEntropy(Loss):
 
     def __init__(self):
         self.dinputs = None
@@ -21,7 +22,7 @@ class Loss_CategorialCrossentropy(Loss):
                 range(samples),
                 y_true
             ]
-            
+
         # Mask values - only for one-hot encoded labels
         elif len(y_true.shape) == 2:
             correct_confidences = np.sum(
@@ -47,4 +48,3 @@ class Loss_CategorialCrossentropy(Loss):
         unnormalized_dinputs = -y_true / dvalues
         # Normalize the gradient
         self.dinputs = unnormalized_dinputs / len(dvalues)
-

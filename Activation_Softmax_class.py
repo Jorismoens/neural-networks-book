@@ -1,4 +1,7 @@
+from typing import Union, Any
+
 import numpy as np
+from numpy import ndarray
 
 
 class Activation_Softmax:
@@ -22,8 +25,7 @@ class Activation_Softmax:
     # With delta_jk the Kronecker delta
     def backward(self, dvalues):
 
-        # TODO instead of line below from NN book, dinputs is declared in init, check if this compiles
-        # self.dinputs = np.empty_like(dvalues)
+        self.dinputs = np.empty_like(dvalues)
 
         # Enumerate outputs and gradients
         for index, (single_output, single_dvalues) in enumerate(zip(self.output, dvalues)):

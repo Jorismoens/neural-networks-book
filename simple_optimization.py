@@ -4,7 +4,7 @@ from nnfs.datasets import vertical_data
 
 from Activation_Softmax_class import Activation_Softmax
 from Layer_Dense_class import Layer_Dense
-from Loss_Function_class import Loss_CategorialCrossentropy
+from Loss_Function_class import Loss_CategoricalCrossEntropy
 from activation_ReLU_class import Activation_ReLU
 
 # With a small neural network [2, 3, 3, 3] we categorize a simple dataset by randomly setting weights and biases on each iteration.
@@ -21,7 +21,7 @@ dense2 = Layer_Dense(3, 3)
 activation2 = Activation_Softmax()
 
 # Create loss function
-loss_function = Loss_CategorialCrossentropy()
+loss_function = Loss_CategoricalCrossEntropy()
 
 # Helper variables
 lowest_loss = 9999999 # Some high initial value
