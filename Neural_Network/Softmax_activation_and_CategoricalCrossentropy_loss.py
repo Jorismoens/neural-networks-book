@@ -3,8 +3,8 @@ from typing import Union, Any
 
 import numpy as np
 
-from Activation_Softmax_class import Activation_Softmax
-from Loss_Function_class import Loss_CategoricalCrossEntropy
+from .Activation_Softmax_class import Activation_Softmax
+from .Loss_Function_class import Loss_CategoricalCrossEntropy
 
 
 class Combined_Loss_And_Activation():

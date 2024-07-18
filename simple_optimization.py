@@ -2,10 +2,10 @@ import nnfs
 import numpy as np
 from nnfs.datasets import vertical_data
 
-from Activation_Softmax_class import Activation_Softmax
-from Layer_Dense_class import Layer_Dense
-from Loss_Function_class import Loss_CategoricalCrossEntropy
-from activation_ReLU_class import Activation_ReLU
+from Neural_Network.Activation_Softmax_class import Activation_Softmax
+from Neural_Network.Layer_Dense_class import Layer_Dense
+from Neural_Network.Loss_Function_class import Loss_CategoricalCrossEntropy
+from Neural_Network.activation_ReLU_class import Activation_ReLU
 
 # With a small neural network [2, 3, 3, 3] we categorize a simple dataset by randomly setting weights and biases on each iteration.
 # We save the set of weights and biases resulting in the lowest loss and make small alterations on them to train the model.

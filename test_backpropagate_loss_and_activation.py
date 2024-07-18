@@ -2,9 +2,9 @@ from timeit import timeit
 import numpy as np
 import nnfs
 
-from Activation_Softmax_class import Activation_Softmax
-from Loss_Function_class import Loss_CategoricalCrossEntropy
-from Softmax_activation_and_CategoricalCrossentropy_loss import Combined_Loss_And_Activation
+from Neural_Network.Activation_Softmax_class import Activation_Softmax
+from Neural_Network.Loss_Function_class import Loss_CategoricalCrossEntropy
+from Neural_Network.Softmax_activation_and_CategoricalCrossentropy_loss import Combined_Loss_And_Activation
 
 nnfs.init()
 
