@@ -6,7 +6,7 @@ class Loss:
 
     # Calculates teh data and regularization lossen
     # given model output and ground truth values
-    def calculate(self, output, y):
+    def calculate(self, output, y) -> float:
 
         #    Calculate sample losses
         sample_losses = self.forward(output, y)

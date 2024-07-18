@@ -4,7 +4,7 @@ import nnfs
 
 from Neural_Network.Activation_Softmax_class import Activation_Softmax
 from Neural_Network.Loss_Function_class import Loss_CategoricalCrossEntropy
-from Neural_Network.Softmax_activation_and_CategoricalCrossentropy_loss import Combined_Loss_And_Activation
+from Neural_Network.Softmax_activation_and_CategoricalCrossentropy_loss import Combined_Activation_And_Loss
 
 nnfs.init()
 
@@ -21,7 +21,7 @@ softmax_outputs = np.array([[0.7, 0.1, 0.2],
 class_targets = np.array([0, 1, 1])
 
 # Gradients of combined loss and activation class
-softmax_loss = Combined_Loss_And_Activation()
+softmax_loss = Combined_Activation_And_Loss()
 softmax_loss.backward(softmax_outputs, class_targets)
 dvalues1 = softmax_loss.dinputs
 
@@ -37,13 +37,16 @@ print('Gradients: combined loss and activation: ')
 print(dvalues1)
 print('Gradients: separate loss and activation: ')
 print(dvalues2)
+
+
 # Results are the same
 
 # Run again through timeit to measure performance gain
 def f1():
-    softmax_loss = Combined_Loss_And_Activation()
+    softmax_loss = Combined_Activation_And_Loss()
     softmax_loss.backward(softmax_outputs, class_targets)
     dvalues1 = softmax_loss.dinputs
+
 
 def f2():
     activation = Activation_Softmax()
@@ -53,8 +56,9 @@ def f2():
     activation.backward(loss.dinputs)
     dvalues2 = activation.dinputs
 
-t1 = timeit(lambda: f1(), number = 10000)
-t2 = timeit(lambda: f2(), number = 10000)
-print(t2/t1)
+
+t1 = timeit(lambda: f1(), number=10000)
+t2 = timeit(lambda: f2(), number=10000)
+print(t2 / t1)
 
 # Calculating the gradient combined is about 5 times faster

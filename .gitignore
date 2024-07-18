@@ -1,5 +1,4 @@
 venv/
 __pycache__
-derivatives.py
 trybackpropagation.py
 morebackpropagation.py

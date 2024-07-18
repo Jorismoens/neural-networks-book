@@ -3,11 +3,11 @@ from typing import Union, Any
 
 import numpy as np
 
-from .Activation_Softmax_class import Activation_Softmax
-from .Loss_Function_class import Loss_CategoricalCrossEntropy
+from Neural_Network.Activation_Softmax_class import Activation_Softmax
+from Neural_Network.Loss_Function_class import Loss_CategoricalCrossEntropy
 
 
-class Combined_Loss_And_Activation():
+class Combined_Activation_And_Loss():
 
     # Creates activation and loss function objects
     def __init__(self):
@@ -16,7 +16,7 @@ class Combined_Loss_And_Activation():
         self.activation = Activation_Softmax()
         self.loss = Loss_CategoricalCrossEntropy()
 
-    def forward(self, inputs, y_true):
+    def forward(self, inputs: Any, y_true: Any) -> float:
         # Output layer's activation function
         self.activation.forward(inputs)
         # Set the output
